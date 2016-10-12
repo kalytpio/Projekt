@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane id="background" stylesheets="@window.css" prefHeight="179.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.view.ChangeBudgetController">
+   <bottom>
+      <HBox alignment="BOTTOM_CENTER" prefHeight="55.0" prefWidth="300.0" spacing="10.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button mnemonicParsing="false" onAction="#change" text="OK" />
+            <Button fx:id="cancel" mnemonicParsing="false" onAction="#close" text="Anuluj" />
+         </children>
+         <padding>
+            <Insets bottom="10.0" />
+         </padding>
+      </HBox>
+   </bottom>
+   <top>
+      <VBox alignment="CENTER" fillWidth="false" prefHeight="106.0" prefWidth="300.0" spacing="20.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Podaj aktualny budżet:" />
+            <HBox prefHeight="34.0" prefWidth="200.0" spacing="5.0">
+               <children>
+                  <TextField fx:id="budget" alignment="CENTER_RIGHT" promptText="0,00" />
+                  <Label text="zł">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets left="25.0" />
+               </padding>
+            </HBox>
+            <Label id="error" fx:id="warning" visible="false" />
+         </children>
+         <BorderPane.margin>
+            <Insets top="10.0" />
+         </BorderPane.margin>
+      </VBox>
+   </top>
+</BorderPane>

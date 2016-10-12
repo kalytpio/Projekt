@@ -1,0 +1,91 @@
+-- MySQL Workbench Forward Engineering
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
+
+-- -----------------------------------------------------
+-- Schema project
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema project
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `project` DEFAULT CHARACTER SET utf8 ;
+USE `project` ;
+
+-- -----------------------------------------------------
+-- Table `project`.`money`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `project`.`money` ;
+
+CREATE TABLE IF NOT EXISTS `project`.`money` (
+  `idmoney` INT NOT NULL AUTO_INCREMENT,
+  `cash` REAL NOT NULL,
+  PRIMARY KEY (`idmoney`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `project`.`categories`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `project`.`categories` ;
+
+CREATE TABLE IF NOT EXISTS `project`.`categories` (
+  `idcategories` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`idcategories`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `project`.`operations`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `project`.`operations` ;
+
+CREATE TABLE IF NOT EXISTS `project`.`operations` (
+  `idoperations` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NOT NULL,
+  `category` VARCHAR(45) NOT NULL,
+  `date` DATE NOT NULL,
+  `cost` REAL NOT NULL,
+  PRIMARY KEY (`idoperations`))
+ENGINE = InnoDB;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+-- -----------------------------------------------------
+-- Data for table `project`.`money`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `project`;
+INSERT INTO `project`.`money` (`idmoney`, `cash`) VALUES (1, 200.20);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `project`.`categories`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `project`;
+INSERT INTO `project`.`categories` (`idcategories`, `name`) VALUES (1, 'Wp³ata');
+INSERT INTO `project`.`categories` (`idcategories`, `name`) VALUES (2, 'Paliwo');
+INSERT INTO `project`.`categories` (`idcategories`, `name`) VALUES (3, 'Jedzenie');
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `project`.`operations`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `project`;
+INSERT INTO `project`.`operations` (`idoperations`, `name`, `category`, `date`, `cost`) VALUES (1, 'Kawa', 'Picie', '2016-09-01', 5.00);
+INSERT INTO `project`.`operations` (`idoperations`, `name`, `category`, `date`, `cost`) VALUES (DEFAULT, 'Próba', 'a', '2010-01-01', 3.00);
+
+COMMIT;
+
